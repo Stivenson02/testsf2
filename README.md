@@ -21,4 +21,11 @@ Corre las migraciones para que se cree las tablas de la base de datos
         docker exec php php artisan migrate
 
 # Django Conocimiento en Python
-En la carpeta Django se encuentra el codigo en python pero no esta en docker asi que se debe tener en el pc instalado python, este usa la misma base de datos por ende es necesario ejecutar migraciones 
+En la carpeta Django se encuentra el codigo en python pero no esta en docker asi que se debe tener en el pc instalado python, este usa sqlite3 que es la base de datos  por defecto de DJANGO asi que se debe ejecutar las migraciones
+
+        cd Django
+        python3 manage.py migrate
+
+cuando la migracion cargue se debe ejecutar el servidor 
+
+        python3 manage.py runserver
