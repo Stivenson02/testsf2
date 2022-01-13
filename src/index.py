@@ -1,26 +1,12 @@
-from flask import Flask, render_template
+from app import app
+from config import config
 
-app = Flask(__name__)
+def page_error(error):
+    return '<h1>La pagina no existe</h1>'
 
-@app.route('/')
-
-def home():
-    return render_template('home.html')
-
-@app.route('/supplier')
-
-def supplier():
-    return render_template('supplier.html')
-
-@app.route('/products')
-
-def products():
-    return render_template('products.html')
-
-@app.route('/inventory')
-
-def inventory():
-    return render_template('inventory.html')
+# Server run
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.config.from_object(config['development'])
+    app.register_error_handler(404,page_error)
+    app.run()
